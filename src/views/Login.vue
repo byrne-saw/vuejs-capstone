@@ -33,14 +33,7 @@ export default {
     };
   },
   created: function() {
-    var role = localStorage.role;
-    if (role === 'admin') {
-      this.$router.push("/admin");
-    } else if (role === 'doctor') {
-      this.$router.push("/doctor");
-    } else if (role === 'patient') {
-      this.$router.push("/patient");
-    }   
+    this.roleCheck();  
   },
 
   methods: {
@@ -56,20 +49,24 @@ export default {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("role", response.data.role);
-          var role = localStorage.role;
-          if (role === 'admin') {
-            this.$router.push("/admin");
-          } else if (role === 'doctor') {
-            this.$router.push("/doctor");
-          } else {
-            this.$router.push("/patient");
-          }
+          this.roleCheck();
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];
           this.email = "";
           this.password = "";
         });
+    },
+    roleCheck: function() {
+      console.log("herere");
+      var role = localStorage.role;
+      if (role === 'admin') {
+        this.$router.push("/admin");
+      } else if (role === 'doctor') {
+        this.$router.push("/doctor");
+      } else if (role === 'patient') {
+        this.$router.push("/patient");
+      }
     }
   }
 };
