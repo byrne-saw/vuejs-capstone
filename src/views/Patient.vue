@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>{{ message }}</h1>
+  <div class="patient">
+    <h1>Patient</h1>
   </div>
 </template>
 
@@ -11,7 +11,7 @@
 export default {
   data: function() {
     return {
-      message: "Welcome to Vue.js!"
+
     };
   },
   created: function() {},
