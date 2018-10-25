@@ -58,7 +58,6 @@ export default {
         });
     },
     roleCheck: function() {
-      console.log("herere");
       var role = localStorage.role;
       if (role === 'admin') {
         this.$router.push("/admin");
