@@ -32,6 +32,17 @@ export default {
       errors: []
     };
   },
+  created: function() {
+    var role = localStorage.role;
+    if (role === 'admin') {
+      this.$router.push("/admin");
+    } else if (role === 'doctor') {
+      this.$router.push("/doctor");
+    } else if (role === 'patient') {
+      this.$router.push("/patient");
+    }   
+  },
+
   methods: {
     submit: function() {
       var params = {
@@ -46,7 +57,6 @@ export default {
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("role", response.data.role);
           var role = localStorage.role;
-          console.log(role);
           if (role === 'admin') {
             this.$router.push("/admin");
           } else if (role === 'doctor') {
