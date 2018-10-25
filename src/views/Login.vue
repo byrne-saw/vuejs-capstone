@@ -45,7 +45,15 @@ export default {
             "Bearer " + response.data.jwt;
           localStorage.setItem("jwt", response.data.jwt);
           localStorage.setItem("role", response.data.role);
-          this.$router.push("/");
+          var role = localStorage.role;
+          console.log(role);
+          if (role === 'admin') {
+            this.$router.push("/admin");
+          } else if (role === 'doctor') {
+            this.$router.push("/doctor");
+          } else {
+            this.$router.push("/patient");
+          }
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];
