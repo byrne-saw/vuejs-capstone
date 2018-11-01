@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    
     <body class="has-fixed-menu">
 
     <div id="preloader">
@@ -22,19 +23,7 @@
             <div class="collapse navbar-collapse" id="navbar-toggle">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index2.html">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about-business.html">ABOUT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="services-business.html">SERVICES</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="portfolio-business.html">PROJECTS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link mr-0" href="contact-business.html">CONTACT</a>
+                        <router-link class="nav-link active" to="/logout">LOGOUT</router-link>
                     </li>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
@@ -42,8 +31,9 @@
     </nav><!-- / custom-menu -->
     <div style="height: 100px"></div> 
     <!-- I added line 44  -->
-
-    <router-view/>
+    <div id="main-envolope">
+        <router-view/>
+    </div>
        
     <div style="height: 50px"></div> 
 
@@ -51,12 +41,16 @@
 
     <footer class="dark bg-primary">
         <div class="container-fluid text-center">
-            <p>Copyright © 2017. BASIX by <a href="http://kingstudio.ro" target="_blank">KingStudio</a>. All Rights Reserved.</p>
+            <p>Copyright © 2018. AppleADay by <a href="http://abyrnesjaunt.com" target="_blank">AByrnesJaunt</a>. All Rights Reserved.</p>
         </div><!-- / container-fluid -->
     </footer>
     </body>
   </div>
 </template>
- <style>
+
+<style>
+ #main-envolope {
+    min-height: 900px;
+ }
 
 </style>
